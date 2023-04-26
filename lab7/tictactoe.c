@@ -1,122 +1,120 @@
+#include <stdio.h>
 #include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-//rozmiar planczy i sama plansza
-int const tab_size=4;
-
-char board[4][4] = { {' ', ' ', ' ', ' '},
-                                  {' ', ' ', ' ', ' '},
-                                  {' ', ' ', ' ', ' '},
-                                  {' ', ' ', ' ', ' '} };
-
-//rysowanie tablicy
-void renderboard(char tab[tab_size][tab_size])
-{
-    printf("  A B C\n");
-    for(int i=0;i<tab_size+1;i++)
-    {
-        printf("%d",i);
-        for(int j=0;j<tab_size+1;j++)
-        {
-            printf(" %c",tab[i][j]);
+char pomoc1;
+void renderboard(char tab[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%c ",tab[i][j]);
         }
         printf("\n");
     }
 }
-
-//kody błędów i końca gry
-
-int makeMove(char gracz)
-{
-    int liczba,litera;
-    printf("Prosze podac pole planszy(najpierw numer wiersza nastepnie numer kolumny):");
-    scanf("%c %d",&litera,&liczba);
-
-    if(board[litera][liczba]==' ')
-    {
-        return 0;
+int makemove(char tab[4][4],int polek, int polew){
+    int odpowiedz;
+    //wolne pole
+    if(tab[polek][polew]==' '){
+        odpowiedz = 1;
+    }//zajęte pole
+    if(tab[polek][polew]!=' '){
+        odpowiedz = 2;
     }
-    if((litera>tab_size)||(liczba>tab_size))
-    {
-        return 1;
+    //poza zakresem
+    if(polek>4 && polew>4){
+        odpowiedz = 1;
     }
-    if((board[litera][liczba]=='X')||(board[litera][liczba]=='O'))
-    {
-        return 2;
+    else{
+        odpowiedz = 3;
     }
-    else
-    {
-        return 3;
+    return odpowiedz;
+}
+
+int score(char tab[4][4]){
+    int odpowiedz=0,pomoc = 0;
+    //poziomo
+    for(int i = 1;i<4;i++){
+        for(int j = 1;j<=3; j++){
+            if(tab[j][i]==tab[j+1][i]){
+                pomoc ++;
+            }
+              if(pomoc==3){
+                pomoc1 = tab[1][i];
+                return 1;
+              }  
+        }
     }
     
+    //pionowo 
+    for(int i = 1;i<4;i++){
+        for(int j = 1;j<=3; j++){
+            if(tab[i][j]==tab[i][j+1]){
+                pomoc ++;
+            }
+              if(pomoc==3){
+                pomoc1 = tab[i][1];
+                return 1;
+              }  
+        }
+    }
+    //sprwadzenie czy nie są puste
+    int sprawdz = 0;
+     for(int i = 1;i<4;i++){
+        for(int j = 1;j<=3; j++){
+            if(tab[i][j]==tab[i][j]){
+                if(tab[i][j]!=' '){
+                    sprawdz = 10;
+                }
+        }
+    }
+    if(sprawdz>0){
+        odpowiedz = 0;
+    }
+    return odpowiedz;
+}
+}
+
+int main() {
+    char tab[4][4] = {{' ', 'A', 'B', 'C'},
+                                 {'1', ' ', ' ', ' '},
+                                 {'2', ' ', ' ', ' '},
+                                 {'3', ' ', ' ', ' '}};
+    int a=0,x,y,znak;
+    int wynik=0;
+    while(wynik==0){
+        //ruch dla x
+        renderboard(tab);
+        printf("Ruch X\n");
+        printf("Prosze podac numer indexu od A - C(1-3): ");
+        scanf("%d",&y);
+        printf("Prosze podac liczbe indexu 1 - 3: ");
+        scanf("%d",&x);
+        wynik = score(tab);
+        if(a==1)
+        {
+            tab[y][x] = 'X';
+        }
+        a = makemove(tab,y,x);
+        wynik = score(tab);
+        
+        //ruch dla O
+        printf("Ruch dla O");
+          renderboard(tab);
+        printf("Prosze podac numer indexu od A - C(1-3): ");
+        scanf("%d",&y);
+        printf("Prosze podac liczbe indexu 1 - 3: ");
+        scanf("%d",&x);
+        
+        a = makemove(tab,y,x);
+        wynik = score(tab);
+        if(a==1)
+        {
+            tab[y][x] = 'O';
+        }
+    }
+    printf("wygrwya %c, %d\n",pomoc1 ,wynik);
+        printf("%d",a);
     
-}
-char score()
-{
-    int sprawdzenie=1,liczba1,liczba2,liczba3,liczba4;
-    char odpowiedz;
-    for(int i=0;i<tab_size;i++)
-    {
-        for(int j=0;j<tab_size;i++)
-        {
-            //pionowo
-            if(board[i][j]!=board[i][j+1])
-            {
-                sprawdzenie=0;
-            }
-            if((j==tab_size-1)&&(sprawdzenie==1))
-            {
-                liczba1=i;
-                liczba2=j;
-            }
-            //poziomo
-            if(board[j][i]!=board[j+1][i])
-            {
-                sprawdzenie=0;
-            }
-            if((j==tab_size-1)&&(sprawdzenie==1))
-            {
-                liczba1=i;
-                liczba2=j;
-            }
-        }
-    }
-    for(int i=0;i<tab_size;i++)
-    {
-        if(board[i][i]!=board[i+1][i+1])
-        {
-            sprwadzenie=0;
-        }
-    }
-    for(int i=tab_siez;i>0;i--)
-    {
-        if(board[i][i]!=board[i-1][i-1])
-        {
-            sprwadzenie=0;
-        }
-    }
-    if(sprawdzenie==1)
-    {
-        return odpowiedz;
-    }
-}
-int main()
-{
-    int x;
-    char y;
-    printf("Podaj swoj znak: ");
-    scanf("%c",y);
-    if(y=='x')
-    {
-        y='X';
-    }if(y=='o')
-    {
-        y='O';
-    }
-    x=makeMove(y);
-    renderboard(board);
-    socer();
+    
     return 0;
 }
 
-//dokończyć funkcję socer
+
