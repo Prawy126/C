@@ -113,7 +113,7 @@ int main() {
     printf("wygrwya %c, %d\n",pomoc1 ,wynik);
         printf("%d",a);
     
-    
+    //poukładać maina
     return 0;
 }
 
