@@ -1,3 +1,0 @@
-"Dyrektywa" nakazuje preprocesorowi języka C wykonanie określonej akcji na tekście programu przed kompilacją. Dyrektywy preprocesora są w pełni opisane w dokumentacji preprocesora. W tym przykładzie użyto dyrektywy #definepreprocesora :
-#define MAX 100
-Ta instrukcja nakazuje kompilatorowi zastąpienie każdego wystąpienia elementu MAX przez 100 przed kompilacją. Dyrektywy preprocesora kompilatora języka C to:
