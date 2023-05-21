@@ -1,15 +1,13 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-int main()
-{
-    char litera[25];
-    int liczba=97;
-    for(int i=0;i<26;i++)
-    {
-        litera[i]=liczba+i;
+int main(){
+    char tab[27];
+    for(int i = 97; i<124;i++){
+        tab[i-97]=i;
     }
-    char *f=&litera[5];
+    char *f;
+    f = &tab[5];
     printf("%c",*f);
     return 0;
 }

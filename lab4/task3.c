@@ -1,22 +1,20 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include<stdlib.h>
 
-double mean(double tab[10])
-{
-    double wynik,suma;
-    for(int i=0;i<10;i++)
-    {
-        suma+=tab[i];
+/*Utwórz i przetestuj funkcję mean() która jako argument przyjmuje 10-elementową tablicę liczb całkowitych a następnie zwraca średnią z tablicy.*/
+
+float mean(int tab[10]){
+    float wynik;
+    for(int i=0;i<10;i++){
+        wynik+=tab[i];
     }
-    wynik=suma/10;
+    wynik/=10;
     return wynik;
 }
 
-int main()
-{
-    double tab[10]={1,2,3,4,5,6,7,8,9,10};
-    double wynik;
-    wynik=mean(tab);
-    printf("Srednia: %f",wynik);
+int main(){
+    int tab[10]={1,2,3,4,5,6,7,8,9,120};
+    printf("%f",mean(tab));
     return 0;
 }
