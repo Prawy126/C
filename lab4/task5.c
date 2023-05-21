@@ -2,6 +2,8 @@
 #include <stdarg.h>
 #include <math.h>
 
+/*Utworzyć funkcję mystdev() która może przyjmować rózne liczby parametrów liczb zmienno przecinkowych i zwraca średnią argumentów. Zmodyfikuj funkcję tak by zwracała odchylenie standardowe (zapoznaj się z dokumentacją biblioteki math.h i wyszukaj odpowiednie funkcje) przekazanych argumentów według wzoru:*/
+
 double mystdev(int n, ...) {
     va_list args;
     va_start(args, n);
