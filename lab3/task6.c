@@ -1,23 +1,26 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdbool.h>
 
-/*Utwórz program który wypisuje kolejne liczby pierwsze.*/
+/* Utwórz program, który wypisuje kolejne liczby pierwsze. */
 
-int main(){
-    bool wynik = false;
-    for(int i = 4; i<100;i++){
-        for(int j = 1;j<i;j++){
-            if((i%j==0 )&& (j == 1 || j == i)){
-                wynik = true;
-            }else {
-                wynik = false;
-                break;
-            }
-            //do poprawy ten watunek
-        }
-        if(wynik == true){
-            printf("%d jest liczba pierwsza\n",i);
+bool czyLiczbaPierwsza(int n) {
+    if (n <= 1)
+        return false;
+    
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    
+    return true;
+}
+
+int main() {
+    printf("%d jest liczba pierwsza\n%d jest liczba pierwsza\n", 2, 3);
+    
+    for (int i = 4; i < 100; i++) {
+        if (czyLiczbaPierwsza(i)) {
+            printf("%d jest liczba pierwsza\n", i);
         }
     }
 
