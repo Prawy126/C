@@ -1,6 +1,8 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+/*Napisz funkcję swap() która przyjmuje wskaźniki do dwóch zmiennych typu float. Funkcja zamienia wartośći tych zmiennych.*/
+
 void swap(float *a, float *b){
     float wynik = *a;
     *a = *b;
