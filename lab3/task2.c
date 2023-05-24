@@ -1,33 +1,38 @@
-#include<stdio.h>
 #include<stdlib.h>
+#include<stdio.h>
 
+/*Utwórz program który wypisuje liczby od 0 do 20.
 
-int main()
-{
-    int x;
-    for(int i=0;i<21;i++)
-    {
-        printf("%d\n",i);
+Utwórz program który wypisuje liczby od 5 do 25.
+
+Utwórz program który wypisuje liczby od 20 do 0.
+
+Utwórz program który wypisuje począwszy od 1 co 3 kolejną liczbę do wartości 50.
+
+Utwórz program który wypisuje 100 liczb podzielnych przez 5.*/
+
+int main(){
+
+    for(int i = 0;i<=20;i++){
+        printf("%d ",i);
     }
     printf("\n");
-    x=5;
-    do{
-        printf("%d\n",x);
-        x++;
-    }while(x<26);
-    printf("\n");
-    x=20;
-    while (x>=0)
-    {
-        printf("%d\n",x);
-        x--;
+    for(int i = 0;i<=20;i++){
+        printf("%d ",i+5);
     }
-    int c=0;
-    for(int i=0;i<=100;i++)
-    {
-        printf("%d\n",c); 
-        c=c+5;
+    printf("\n");
+    for(int i = 20;i>=0;i--){
+        printf("%d ",i);
+    }
+    printf("\n");
+    for(int i = 1;i<=50;i+=3){
+        printf("%d ",i);
+    }
+    printf("\n");
+    for(int i = 0;i<=100;i+=5){
+        printf("%d ",i);
     }
     
 
+    return 0;
 }

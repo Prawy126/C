@@ -8,10 +8,10 @@ int main(int argc, char const *argv[])
     array[0] = 1; // Ustawienie kolejnych wartości w tablicy
     array[1] = 2;
     array[2] = 3;
-    array[4] = 4; // Zachowanie "Undefined" ponieważ wykraczamy poza zakres tablicy. Wartość może ulegać zmianie w czasie działania systemu ponieważ program nie zarezerwował tego miejsca w pamięci.
+    array[3] = 4; // Zachowanie "Undefined" ponieważ wykraczamy poza zakres tablicy. Wartość może ulegać zmianie w czasie działania systemu ponieważ program nie zarezerwował tego miejsca w pamięci.
      
-    printf("Wielkosc tablicy w bajtach: %i\n",sizeof(array));
-    printf("Poniewaz wielkosc int - %i bajtow razy wielkosc tablicy - 3\n", sizeof(int));
+    printf("Wielkość tablicy w bajtach: %i\n",sizeof(array));
+    printf("Ponieważ wielkość int - %i bajtów razy wielkość tablicy - 3\n", sizeof(int));
     printf("array[0] = %i\n", array[0]);
     printf("array[1] = %i\n", array[1]);
     printf("array[2] = %i\n", array[2]);
