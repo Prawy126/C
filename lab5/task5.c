@@ -4,9 +4,9 @@
 
 void comparestr() {
     char str1[100], str2[50];
-    printf("Proszę podać pierwszy łańcuch: ");
+    printf("Prosze podac pierwszy lancuch: ");
     scanf("%s ", str1);
-    printf("Proszę podać drugi łańcuch: ");
+    printf("Prosze podac drugi lancuch: ");
     scanf("%s ", str2);
     
     int len1 = 0, len2 = 0;
@@ -31,7 +31,7 @@ void comparestr() {
     }
     
     float similarity = (float)matching / len1;
-    printf("Łańcuchy są podobne w %.2f%%\n", similarity * 100);
+    printf("Łancuchy są podobne w %.2f%%\n", similarity * 100);
 }
 
 int main() {
