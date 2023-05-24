@@ -1,18 +1,17 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-void swap(float *a,float *b)
-{
-   float g=*a;
-   *a=*b;
-   *b=g;
+/*Napisz funkcję swap() która przyjmuje wskaźniki do dwóch zmiennych typu float. Funkcja zamienia wartośći tych zmiennych.*/
+
+void swap(float *a, float *b){
+    float wynik = *a;
+    *a = *b;
+    *b = wynik;
 }
 
-int main()
-{
-    float t=213,z=22.321;
-    swap(&t,&z);
-    printf("%f, %f",t,z);
-
+int main(){
+    float a = 1,  b = 3,*c=&a,*d=&b;
+    swap(c,d); 
+    printf("%f %f",a,b);
     return 0;
 }
