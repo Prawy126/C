@@ -30,12 +30,13 @@ void showdata(struct patient p)
     printf("BMI: %.2f\n", bmi);
 }
 int main(){
-    struct patient pacjent[50]={{"Adam", "", 0, 0, 0.0, 0.0}, // Pacjent 1
+    struct patient pacjent[50]={{"Adam", "Nowak", 39, 123123, 76.65, 1.86}, // Pacjent 1
         {"Ewa", "", 0, 0, 0.0, 0.0},   // Pacjent 2
-        {"Jan", "", 0, 0, 0.0, 0.0},   // Pacjent 3
-        {"Anna", "", 0, 0, 0.0, 0.0},  // Pacjent 4
-        {"Michał", "", 0, 0, 0.0, 0.0} // Pacjent 5
+        {"Jan", "Polak", 26, 1313213, 70, 1.77},   // Pacjent 3
+        {"Anna", "Kowalska", 23, 2132131, 40, 1.57},  // Pacjent 4
+        {"Michał", "Pilecki", 29, 1232131, 100, 1.78} // Pacjent 5
     };
+    showdata(pacjent[3]);
 
     
     return 0;
