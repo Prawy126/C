@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include<stdlib.h>
 
 int main(int argc, char const *argv[])
 {
-    FILE *in = fopen("file1.txt", "r");    // otwiera plik do odczytu (plik musi istniec)
+    FILE *in = fopen("files/file1.txt", "r");    // otwiera plik do odczytu (plik musi istniec)
     printf("wskaznik na pierwszy adres w pamieci gdzie zpaisany jest odczytany z dysku plik: %p\n",in);
     if (in == NULL)
     {
