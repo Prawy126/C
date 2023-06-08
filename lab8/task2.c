@@ -1,22 +1,37 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include<string.h>
 
-/*Napisz program task2 który do pliku file.txt doda kolejną linijkę "2 Monitor 200"*/
+int main() {
+    FILE *file;
+    char line[100];
+    bool lineExists = false;
 
-/*Przy kolejnych uruchomieniach programu plik file.txt powinien dopisywać kolejne wiersze "2 Monitor 200". np. po 3 uruchomieniach plik powinien wyglądać tak.*/
-
-int main(){
-    FILE *plik = fopen("./tekst.txt","a");
-    if(plik==NULL){
-        perror("nie udalo sie otworzyc pliku.");
-        return 1;
+    // Sprawdzanie czy linijka z numerem "2." istnieje
+    file = fopen("tekst.txt", "r");
+    if (file != NULL) {
+        while (fgets(line, sizeof(line), file) != NULL) {
+            if (line[0] == '2' && line[1] == ' ' && strcmp(line, "2 Monitor 200\n") == 0) {
+                lineExists = true;
+                break;
+            }
+        }
+        fclose(file);
     }
-    
-    //poprawić sprawdzanie 2 linii
-    fprintf(plik,"\n2 Monitor 200");
-    char tab[30];
-    fscanf(plik,"%s",tab);
-    printf("%s",tab);
-    fclose(plik);
+
+    // Dodawanie linijki "2 Monitor 200" do pliku, jeśli nie istnieje
+    if (!lineExists) {
+        file = fopen("tekst.txt", "a");
+        if (file != NULL) {
+            fprintf(file, "2 Monitor 200\n");
+            fclose(file);
+            printf("Linijka dodana do pliku.\n");
+        } else {
+            printf("Nie można otworzyć pliku.\n");
+        }
+    } else {
+        printf("Linijka już istnieje w pliku.\n");
+    }
+
     return 0;
 }
