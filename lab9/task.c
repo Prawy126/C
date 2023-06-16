@@ -1,66 +1,68 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-/*Zadanie 1
-Utwórz typ wyliczeniowy var_type zawierający wartości INT, FLOAT, CHAR.
-
-Zadanie 2
-Utwórz struktórę var która będzie przechowywać typ zmiennej. Oraz wartość zmiennej. Typ zmiennej jest typem wyliczeniowym natomiast na przehcoywanie wartoścu utwórz unie o typach takich jak w poprzednim zadaniu.
-
-Zadanie 3
-Utwórz funckję setInt() setFloat() setChar() które przyjmują dwa arumenty, wskaźnik do zmiennej var i wartość zmiennej. Funkcje ustawiają odpowienio wartości zmiennej var.
-
-Zadanie 4
-Utwórz tablicę zawierającą 10 wartości typu var. Wypełnij tablicę wartości najpierw liczbami od 1 do 10. Wypełnij tablicę wartościami A, B, C, D ...
-
-Zadanie 5
-Utwóz funkcję varToString() która zwraca wskaźnik do łańcucha znaków. Np. jeśli var przechowuje wartość 100 to varToString() pwoinna zwrócić wskaźnik na tablicę przechowującą napis "100". Wykorzystaj funkcję sprintf()
-
-Zadanie 6
-Wypisz zawartość tablic wykorzystując stworzone funkcje.*/
-
-typedef enum var_type{
+typedef enum {
     INT,
     FLOAT,
     CHAR
 } var_type;
 
-struct var
-{
-    var_type i;
+struct var {
+    var_type type;
+    union {
+        int intValue;
+        float floatValue;
+        char charValue;
+    };
 };
 
-union unia
-{
-    int a;
-    float b;
-    char c;
-};
-
-
-void setInt(var_type *wsk,int wartosc){
-    *wsk=wartosc;
-}
-void setChar(var_type *wsk,char wartosc){
-    *wsk=wartosc;
-}void setFloat(var_type *wsk,float wartosc){
-    *wsk=wartosc;
-}
-//zawiecha nad zadaniem 5 
-char* varToString(struct var var){
-    return ;
+void setInt(struct var* variable, int value) {
+    variable->type = INT;
+    variable->intValue = value;
 }
 
-int main(){
+void setFloat(struct var* variable, float value) {
+    variable->type = FLOAT;
+    variable->floatValue = value;
+}
 
-    struct var var1[10];
-    for (size_t i = 0; i < 10; i++)
-    {
-        var1[i].i=i;
+void setChar(struct var* variable, char value) {
+    variable->type = CHAR;
+    variable->charValue = value;
+}
+
+char* varToString(struct var variable) {
+    char* str = (char*)malloc(20 * sizeof(char));
+
+    switch (variable.type) {
+        case INT:
+            sprintf(str, "%d", variable.intValue);
+            break;
+        case FLOAT:
+            sprintf(str, "%.2f", variable.floatValue);
+            break;
+        case CHAR:
+            sprintf(str, "%c", variable.charValue);
+            break;
     }
-    var1[0].i='A';
-    var1[1].i='B';
-    var1[2].i='C';
-    printf("%d",var1[5].i);
-    return 0;
+
+    return str;
+}
+
+int main() {
+    struct var var1[10];
+    for (size_t i = 0; i < 10; i++) {
+        setInt(&var1[i], i + 1);
+    }
+
+    setChar(&var1[0], 'A');
+    setChar(&var1[1], 'B');
+    setChar(&var1[2], 'C');
+
+    for (size_t i = 0; i < 10; i++) {
+        char* str = varToString(var1[i]);
+        printf("%s", str);
+        free(str);
+   
+    }
 }
