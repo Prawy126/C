@@ -1,8 +1,5 @@
 # C
 
-## Pytania
-
-- 
 
 ## Zadania
 
