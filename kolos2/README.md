@@ -206,10 +206,6 @@ Po wybraniu opcji 3 program wyświetla macierz odległości macierzy przechowywa
 Program powinien działać aż do momentu wybrania opcji wyjście. Pamięć powinna być zwalniana w odpowiednim momencie.
 
 # Palindrom
-Wybrać jedno z poniższych zadań.
-Po zakończeniu kolokwium pliki spakować w archiwum .zip i przesłać za pomocą formularza.
-
-## 3.0
 Utwórz program `dst_palindrom`.
 
 Utwórz funkcję `checkPalindrom()` która przyjmuje łańcuch znaków(**tablica** znaków zakończona pustym znakiem). Funkcja zlicza ile znaków jest na właściwej pozycji by utworzyć palindrom(słowo czytane od przodu i od tyłu brzmiące tak samo) i zwraca tę liczbę. Jeśli łańcuch znaków jest palindromem wtedy zwraca liczbę liter w słowie. np.
