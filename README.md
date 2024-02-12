@@ -1,4 +1,4 @@
-# Repozytorium nauki języka C
+# Repozytorium nauki języka C ![Rozmiar repozytorium](https://img.shields.io/github/languages/code-size/Prawy126/C) ![Licencja](https://img.shields.io/github/license/Prawy126/C)
 Repozytorium z języka C powstało żeby pokazać przebieg nauki języka C w trakcie trwania labów ale także poza nim
 ## Zadania na labach
 [Laboratorium 2](https://github.com/Prawy126/C/tree/main/lab2)  
