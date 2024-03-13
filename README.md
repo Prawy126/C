@@ -11,6 +11,6 @@ Repozytorium z języka C powstało żeby pokazać przebieg nauki języka C w tra
 [Laboratorium 9](https://github.com/Prawy126/C/tree/main/lab9)  
 ## Kolokwium z labów:
 [Pierwsze kolowkium](https://github.com/Prawy126/C/tree/main/kolos)  
-[Drugir kolokwium](https://github.com/Prawy126/C/tree/main/kolos2)  
+[Drugie kolokwium](https://github.com/Prawy126/C/tree/main/kolos2)  
 ### Całe repozytorium posiada licencję MIT:
 [Licencja MIT](https://github.com/Prawy126/C/tree/main/LICENSE)  
