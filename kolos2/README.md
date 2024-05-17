@@ -287,9 +287,7 @@ Funkcja wypisuje zawartość macierzy w następującym formacie:
 5. Utwórz funkcję `multiplyArrays()` przyjmującą dwie instancje struktury `Array`. W ciele funkcji zaimplementuj mnożenie macierzy według wzoru:
 
 $$
-
 C_{ij} = \Sigma_{k=1}^{p} A_{ik} B_{kj}
-
 $$
 
 Metoda zwraca nową strukturę `Array` będącą wynikiem mnożenia przekazanych macierzy.
